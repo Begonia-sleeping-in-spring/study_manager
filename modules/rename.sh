@@ -17,6 +17,11 @@ do
     filename=$(basename "$file")
     dirname=$(dirname "$file")
 
+    # 跳过所有隐藏文件
+    if [[ "$filename" == .* ]]; then
+        continue
+    fi
+
     # 如果已经有前缀，则跳过
     if [[ "$filename" == ${PREFIX}* ]]; then
         echo "跳过：$filename"
